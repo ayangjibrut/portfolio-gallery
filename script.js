@@ -1,15 +1,54 @@
-const observer = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('show')
-        } else {
-            entry.target.classList.remove('show')
-        }
+document.addEventListener("DOMContentLoaded", function() {
+    const header = document.getElementById("page-header")
+    const intercept = document.createElement("div")
+
+    intercept.setAttribute("data-observer-intercept", "")
+    header.before(intercept)
+
+    const observerHeader = new IntersectionObserver(function([entry]) {
+        header.classList.toggle("active", !entry.isIntersecting)
     })
-})
 
-const hiddenElements = document.querySelectorAll('.hidden')
+    observerHeader.observe(intercept)
 
-hiddenElements.forEach(function(el) {
-    observer.observe(el)
-})
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+            } else {
+                entry.target.classList.remove('show');
+            }
+        })
+    })
+
+    const hiddenElements = document.querySelectorAll('.hidden')
+
+    hiddenElements.forEach((el) => observer.observe(el))
+});
+
+
+// const header = document.getElementById("page-header")
+// const intercept = document.createElement("div")
+
+// intercept.setAttribute("data-observer-intercept", "")
+// header.before(intercept)
+
+// const observerHeader = new IntersectionObserver(function([entry]) {
+//     header.classList.toggle("active", !entry.isIntersecting)
+// })
+  
+// observerHeader.observe(intercept)
+
+// const observer = new IntersectionObserver(function(entries) {
+//     entries.forEach(function(entre) {
+//         if (entre.isIntersecting) {
+//             entre.target.classList.add('show')
+//         } else {
+//             entre.target.classList.remove('show')
+//         }
+//     })
+// })
+
+// const hiddenElements = document.querySelectorAll('.hidden')
+
+// hiddenElements.forEach((el) => observer.observe(el))
