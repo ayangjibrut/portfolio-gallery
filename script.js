@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const header = document.getElementById("page-header")
+    const header = document.querySelector("#page-header")
     const intercept = document.createElement("div")
 
     intercept.setAttribute("data-observer-intercept", "")
@@ -14,17 +14,19 @@ document.addEventListener("DOMContentLoaded", function() {
     const observer = new IntersectionObserver(function(entries) {
         entries.forEach(function(entry) {
             if (entry.isIntersecting) {
-                entry.target.classList.add('show');
+                entry.target.classList.add("show")
             } else {
-                entry.target.classList.remove('show');
+                entry.target.classList.remove("show")
             }
         })
     })
 
-    const hiddenElements = document.querySelectorAll('.hidden')
+    const hiddenElements = document.querySelectorAll(".hidden")
 
-    hiddenElements.forEach((el) => observer.observe(el))
-});
+    hiddenElements.forEach(function(el) {
+        observer.observe(el)
+    })
+})
 
 
 // const header = document.getElementById("page-header")
@@ -42,13 +44,13 @@ document.addEventListener("DOMContentLoaded", function() {
 // const observer = new IntersectionObserver(function(entries) {
 //     entries.forEach(function(entre) {
 //         if (entre.isIntersecting) {
-//             entre.target.classList.add('show')
+//             entre.target.classList.add("show")
 //         } else {
-//             entre.target.classList.remove('show')
+//             entre.target.classList.remove("show")
 //         }
 //     })
 // })
 
-// const hiddenElements = document.querySelectorAll('.hidden')
+// const hiddenElements = document.querySelectorAll(".hidden")
 
 // hiddenElements.forEach((el) => observer.observe(el))
