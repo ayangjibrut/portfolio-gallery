@@ -163,23 +163,44 @@ h1.about-contact {
 img.about-contact {
     border: 6px solid #333333;
     border-radius: 50%;
-    width: 700px;
+    width: 40%;
 }
 
 div.about-contact {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 650px;
+    width: 30%;
+}
+
+.gradient-background {
+    /* background: rgb(51,51,51);
+    background: linear-gradient(0deg, rgba(51,51,51,1) 0%, rgba(255,20,147,1) 50%, rgba(245,245,245,1) 100%); */
+
+    background: rgb(51,51,51);
+    background: linear-gradient(0deg, rgba(51,51,51,1) 5%, rgba(211,129,38,1) 40%, rgba(211,129,38,0) 80%);
 }
 
 footer {
     text-align: center;
-    margin-top: 1em;
-    padding: 2em 0;
+    padding: 3em 0;
     background-color: #333333;
     color: whitesmoke;
     width: 100%;
+}
+
+a svg:hover {
+    fill: deeppink;
+}
+
+.gallery {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.gallery img {
+    width: 100%;
+    padding-bottom: 1em;
 }
 
 @media (prefers-reduced-motion) {
@@ -198,20 +219,42 @@ footer {
     }
 
     .logo h1 {
-        font-size: 1em;
+        font-size: 1.75em;
         margin-bottom: -2px;
     }
 
     .logo p {
-        font-size: .75em;
+        font-size: .8em;
     }
 
-    li a {
-        font-size: .75em;
+    nav {
+        display: none;
     }
 
     .section-container {
         width: 90%;
+        margin: 0 auto;
+    }
+
+    h1.about-contact {
+        font-size: 3.5em;
+    }
+
+    a svg {
+        width: 50px;
+        height: 50px;
+    }
+
+    div.about-contact {
+        width: 40%;
+    }
+
+    footer {
+        padding: 1.5em;
+    }
+
+    .gallery {
+        width: 100%;
         margin: 0 auto;
     }
 }
