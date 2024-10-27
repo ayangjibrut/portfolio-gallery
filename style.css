@@ -56,7 +56,7 @@ a.gallery-view:active {
 }
 
 nav {
-    display: flex;
+    display: none;
 }
 
 ul {
@@ -111,8 +111,6 @@ figure > img {
     grid-template-columns: repeat(4, 1fr);
 }
 
-/* grid-template-rows: masonry; */
-
 section {
     display: grid;
     place-items: start;
@@ -123,7 +121,7 @@ section {
     opacity: 0;
     filter: blur(5px);
     transform: translateY(20%);
-    transition: 1.5s;
+    transition: 1s;
 }
 
 .show {
@@ -194,13 +192,11 @@ a svg:hover {
 }
 
 .gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     width: 70%;
     margin: 0 auto;
-}
-
-.gallery img {
-    width: 100%;
-    padding-bottom: 1em;
+    gap: .5em;
 }
 
 @media (prefers-reduced-motion) {
@@ -245,8 +241,16 @@ a svg:hover {
         height: 50px;
     }
 
+    h1.about-contact {
+        font-size: 4em;
+    }
+
+    img.about-contact {
+        width: 60%;
+    }
+
     div.about-contact {
-        width: 40%;
+        width: 60%;
     }
 
     footer {
@@ -254,7 +258,35 @@ a svg:hover {
     }
 
     .gallery {
+        display: block;
         width: 100%;
         margin: 0 auto;
+    }
+
+    .gallery img {
+        padding: 0 .5em .5em;
+    }
+
+    .hidden {
+        opacity: 0;
+        filter: blur(2px);
+        transform: translateY(20%);
+        transition: .5s;
+    }
+    
+    .show {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateX(0);
+    }
+}
+
+@media (max-width: 920px) {
+    img.about-contact {
+        width: 70%;
+    }
+
+    div.about-contact {
+        width: 60%;
     }
 }
